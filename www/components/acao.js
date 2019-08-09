@@ -22,11 +22,11 @@ $(document).on("click","#vibrar",function(){
 });
 $(document).on("click","#LerCodigo",function(){
   cordova.plugins.barcodeScanner.scan(
-      function (result) {
-          alert("Resultado da Leitura\n" +
-                "Resultado: " + result.text + "\n" +
-                "Formato: " + result.format + "\n" +
-                "Cancelado: " + result.cancelled);
+        function(result){
+          if(result.text==888888){
+        $(location).attr("href","produto1.html");
+
+        }
       },
       function (error) {
           alert("Falha no Scanning : " + error);
