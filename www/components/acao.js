@@ -1,4 +1,5 @@
 // This is a JavaScript file
+/*
 function retorno(){
 
 }
@@ -19,14 +20,30 @@ $(document).on("click","#alerta",function(){
 });
 $(document).on("click","#vibrar",function(){
   navigator.vibrate(3000);
-});
+});*/
 $(document).on("click","#LerCodigo",function(){
   cordova.plugins.barcodeScanner.scan(
         function(result){
-          if(result.text==888888){
+          if(result.text==280720550){
         $(location).attr("href","produto1.html");
+         navigator.notification.beep(1);
 
-        }
+        }else if(result.text==989895555){
+        $(location).attr("href","produto2.html");
+         navigator.notification.beep(1);
+
+        }else if(result.text==85236987){
+        $(location).attr("href","produto3.html");
+         navigator.notification.beep(1);
+
+        }else if(result.text==85369877444){
+        $(location).attr("href","produto4.html");
+         navigator.notification.beep(1);
+
+        }else{
+          navigator.notification.alert("Produto Invalido");
+          navigator.notification.beep(1);
+        } 
       },
       function (error) {
           alert("Falha no Scanning : " + error);
